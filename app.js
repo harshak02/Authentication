@@ -8,10 +8,10 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
 
-mongoose.connect("mongodb+srv://harshak02:jntucse1234@cluster0.sttwkrc.mongodb.net/loginDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://harshak02:jntucse1234@cluster0.sttwkrc.mongodb.net/CC-DSA", {useNewUrlParser: true});
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 require("./config/passport")(passport);
 
@@ -39,9 +39,8 @@ app.use( (req,res,next) => {
     next();
 });
 
-app.use("/",require("./routes/index"));
+app.use("/",require("./routes/app2"));//acts like home route
 app.use("/users",require("./routes/users"));
-app.use("/dashboard",require("./routes/index"));
 
 app.listen(PORT, console.log(`Server started at the port ${PORT}`));
 

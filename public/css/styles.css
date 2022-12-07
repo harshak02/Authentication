@@ -1,0 +1,55 @@
+body{
+  font-family : "Baskervville";
+  font-size :medium;
+}
+
+#testimonial{
+  background-color: #fff;
+  font-weight: 700;
+  text-align : center;
+}
+
+h3{
+  font-weight : bold;
+}
+
+#title{
+  background-color: #ff4c68;
+}
+
+.navbar{
+  padding-left : 0;
+  padding-bottom: 2rem;
+}
+
+.navbar-brand{
+  font-family: "Baskervville";
+  font-weight: bold;
+  padding-right: 20%;
+}
+
+.nav-item{
+  font-size : 1.4rem;
+  padding : 0 0.75rem;
+}
+
+
+hr{
+  background-color: #fff;
+  border-top: 2px dashed #000;
+}
+
+#testimonials{
+  padding: 7% 15%;
+  background-color:whitesmoke;
+  color : black;
+  text-align: center;
+}
+
+.tempH3{
+  display : inline;
+}
+
+.manual{
+  background-color: #ff4c68;
+}
