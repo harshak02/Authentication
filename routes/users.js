@@ -78,10 +78,12 @@ router.post('/login', (req,res,next) => {
     })(req,res,next);
 });
 
-router.get('/logout', (req,res)=> {
-    req.logout();
-    req.flash("sucsess_msg" , "You are logged out");
-    res.redirect('/users/login');
-})
+router.get("/logout", (req, res) => {
+    req.logout(req.user, err => {
+      if(err) return next(err);
+      req.flash("success_msg" , "You are logged out");
+      res.redirect('/users/login');
+    });
+  });
 
 module.exports = router;

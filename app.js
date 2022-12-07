@@ -41,7 +41,7 @@ app.use( (req,res,next) => {
 
 app.use("/",require("./routes/index"));
 app.use("/users",require("./routes/users"));
-app.use("/dashboard",require("./routes/users"));
+app.use("/dashboard",require("./routes/index"));
 
 app.listen(PORT, console.log(`Server started at the port ${PORT}`));
 
