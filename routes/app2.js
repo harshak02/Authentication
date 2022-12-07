@@ -124,9 +124,7 @@ router.post("/commentPre",function(req,res){
 router.post("/commentCreate",function(req,res){
   var currQues = req.body.quesName;
   var yName = req.user.name;
-  console.log(req.user.name);
   var yRoll = req.user.rollNo;
-  console.log(req.user.rollNo);
   var yComment = req.body.yComment;
   const newComment = new Comment({
     name : yName,

@@ -51,7 +51,7 @@ router.post('/register',(req,res) => {
                         rollNo : rollNo,
                         password : password
                     });
-                    console.log(newUser.rollNo);
+                
                     bcrypt.genSalt (10, (err,salt) => 
                         bcrypt.hash(newUser.password , salt , (err,hash) => {
                             if(err){

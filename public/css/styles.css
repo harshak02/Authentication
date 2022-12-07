@@ -1,6 +1,16 @@
 body{
-  font-family : "Baskervville";
-  font-size :medium;
+  font-weight: bold;
+  font-family : "Ubuntu";
+  font-size : large;
+}
+
+a{
+  color : whitesmoke;
+  font-size :x-large;
+}
+
+.button{
+  color : black;
 }
 
 #testimonial{
@@ -35,8 +45,8 @@ h3{
 
 
 hr{
-  background-color: #fff;
-  border-top: 2px dashed #000;
+  background-color: black;
+  border-top: 4px dashed black;
 }
 
 #testimonials{

@@ -1,14 +1,14 @@
 <%- include("partials/header"); -%>
 <br>
+<h2>Comments to the question :</h2>
 <br>
-<br>
+
 <% for(var i = 0;i<Comments.length;i++){ %>
-    
     <h4><b> # <%= Comments[i].name%>  <%= Comments[i].rollNo%></b></h4>
     <p>
         <%= Comments[i].content %>
     </p>
-
+    <hr>
 <% } %>
 
 <%- include("partials/footer"); -%>
