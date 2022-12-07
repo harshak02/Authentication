@@ -90,4 +90,8 @@ router.get("/logout", (req, res) => {
     res.render('contact');
   });
 
+  router.get("/schedule", (req,res) => {
+    res.render('schedule');
+  });
+
 module.exports = router;
