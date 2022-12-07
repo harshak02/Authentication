@@ -16,11 +16,12 @@ router.get('/register',(req,res) => {
 router.post('/register',(req,res) => {
     var name = req.body.name;
     var email = req.body.email;
+    var rollNo = req.body.rollNo;
     var password = req.body.password;
     var password2 = req.body.password2;
     var errors = [];
 
-    if(!name || !email || !password || !password2){
+    if(!name || !email || !password || !password2 || !rollNo){
         errors.push({msg : "Please fill in all fields"});
     }
 
@@ -33,7 +34,7 @@ router.post('/register',(req,res) => {
     }
 
     if(errors.length>0){
-        res.render('register', {errors : errors,name : name,email : email,password : password,password2:password2});
+        res.render('register', {errors : errors,name : name,email : email,rollNo : rollNo,password : password,password2:password2});
     }
 
     else{
@@ -41,15 +42,16 @@ router.post('/register',(req,res) => {
             .then(user => {
                 if(user){
                     errors.push({msg : "User Aldeready Exist"});
-                    res.render('register', {errors : errors,name : name,email : email,password : password,password2:password2});
+                    res.render('register', {errors : errors,name : name,email : email,rollNo : rollNo,password : password,password2:password2});
                 }
                 else{
                     const newUser = new User({
                         name : name,
                         email : email,
+                        rollNo : rollNo,
                         password : password
                     });
-
+                    console.log(newUser.rollNo);
                     bcrypt.genSalt (10, (err,salt) => 
                         bcrypt.hash(newUser.password , salt , (err,hash) => {
                             if(err){

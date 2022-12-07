@@ -12,6 +12,11 @@ const UserSchema = new mongoose.Schema({
         required : true
     },
 
+    rollNo : {
+        type : String,
+        required : true
+    },
+
     password : {
         type : String,
         required : true
