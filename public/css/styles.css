@@ -5,8 +5,7 @@ body{
 }
 
 a{
-  color : whitesmoke;
-  font-size :x-large;
+  font-size :large;
 }
 
 .button{
@@ -14,7 +13,6 @@ a{
 }
 
 #testimonial{
-  background-color: #fff;
   font-weight: 700;
   text-align : center;
 }
@@ -51,7 +49,7 @@ hr{
 
 #testimonials{
   padding: 7% 15%;
-  background-color:whitesmoke;
+  background-color:#C2B9B0;
   color : black;
   text-align: center;
 }
