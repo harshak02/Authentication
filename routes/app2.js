@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 var topicName;
 
+const {ensureAuthenticated} = require("../config/auth");
+
 const CommentSchema = {
   name : String,
   rollNo : String,
@@ -27,8 +29,6 @@ const QuestionSchema = {
 
 const Question = mongoose.model("Question",QuestionSchema);
 
-const {ensureAuthenticated} = require("../config/auth");
-
 router.get('/',(req,res) => {
     res.render('welcome');
 });
@@ -47,11 +47,11 @@ router.get("/questionsPage", ensureAuthenticated, function(req, res){
   });
 });
 
-router.get("/compose", function(req, res){
+router.get("/compose", ensureAuthenticated,function(req, res){
   res.render("compose");
 });
 
-router.post("/compose", function(req, res){
+router.post("/compose", ensureAuthenticated, function(req, res){
 
   var diff = req.body.qDiff;
   var name = req.body.qName;
@@ -80,7 +80,7 @@ router.post("/compose", function(req, res){
 
 });
 
-router.get("/post/:topicQ",function(req,res){
+router.get("/post/:topicQ",ensureAuthenticated,function(req,res){
   
   var flag  = 0;
   var num = 0;
@@ -108,11 +108,7 @@ router.get("/post/:topicQ",function(req,res){
   });
 });
 
-router.get("/commentPre",function(req,res){
-  
-});
-
-router.post("/commentPre",function(req,res){
+router.post("/commentPre",ensureAuthenticated,function(req,res){
   var currQues = req.body.quesName;
   Question.findOne({name : currQues},function(err,foundList){
     res.render("comment",{
@@ -121,7 +117,7 @@ router.post("/commentPre",function(req,res){
   });
 });
 
-router.post("/commentCreate",function(req,res){
+router.post("/commentCreate",ensureAuthenticated,function(req,res){
   var currQues = req.body.quesName;
   var yName = req.user.name;
   var yRoll = req.user.rollNo;
@@ -137,7 +133,7 @@ router.post("/commentCreate",function(req,res){
 });
 
 
-router.post("/homePrevious",function(req,res){
+router.post("/homePrevious",ensureAuthenticated,function(req,res){
   
   Question.find(function(err,QuestionDetails){
     if(err){
@@ -151,7 +147,7 @@ router.post("/homePrevious",function(req,res){
   });
 });
 
-router.get("/homePrevious",function(req,res) {
+router.get("/homePrevious",ensureAuthenticated,function(req,res) {
   Question.find(function(err,QuestionDetails){
       if(err){
         console.log(err);

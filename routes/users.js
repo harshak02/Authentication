@@ -5,6 +5,8 @@ const passport = require("passport");
 
 const User = require('../models/User');
 
+const {ensureAuthenticated} = require("../config/auth");
+
 router.get('/login',(req,res) => {
     res.render('login');
 });
@@ -88,11 +90,11 @@ router.get("/logout", (req, res) => {
     });
   });
 
-  router.get("/contact", (req,res) => {
+  router.get("/contact", ensureAuthenticated,(req,res) => {
     res.render('contact');
   });
 
-  router.get("/schedule", (req,res) => {
+  router.get("/schedule", ensureAuthenticated,(req,res) => {
     res.render('schedule');
   });
 
